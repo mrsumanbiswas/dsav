@@ -1,0 +1,45 @@
+<div id="intro">
+    <!-- about photos -->
+    <div id="about-photos">
+
+    </div>
+    <!-- upload photos form -->
+    <button mat-raised-button #uploadButton (mouseover)="uploadButton.color = 'primary';"
+        (click)="openDialog();">UPLOAD</button>
+</div>
+
+<!-- on data loads -->
+<div id="photos" *ngIf="postData">
+    <!-- display photos with filter option -->
+    <mat-card *ngFor="let post of postData">
+        <mat-card-header>
+            <img [src]="post.photoURL" mat-card-avatar>
+            <mat-card-title>{{post.displayName}}</mat-card-title>
+            <mat-card-subtitle>{{post.timestamp}}</mat-card-subtitle>
+        </mat-card-header>
+        <img [src]="post.url" alt="image" mat-card-image #image>
+        <span>{{image.naturalWidth}}x{{image.naturalHeight}}</span>
+        <mat-card-content>
+            <p>VOTES <b> &LongRightArrow; </b> {{post.vote}}</p>
+        </mat-card-content>
+        <mat-card-actions>
+            <p>&ZeroWidthSpace;</p>
+            <button mat-icon-button>
+                <mat-icon>thumb_up</mat-icon>
+            </button>
+            <p>&ZeroWidthSpace;</p>
+            <button mat-icon-button>
+                <mat-icon>thumb_down</mat-icon>
+            </button>
+            <p>&ZeroWidthSpace;</p>
+        </mat-card-actions>
+    </mat-card>
+</div>
+
+<!-- during data loading  -->
+<app-data-loading *ngIf="postData.length === 0"></app-data-loading>
+
+<!-- top button -->
+<button mat-icon-button id="top" (click)="top();">
+    <mat-icon>arrow_upward</mat-icon>
+</button>

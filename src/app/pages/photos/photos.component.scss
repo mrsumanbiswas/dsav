@@ -1,0 +1,71 @@
+#intro {
+    display: flex;
+    padding: 2rem;
+
+    #about-phtotos {}
+
+    button {
+        width: 100%;
+        margin: auto;
+        padding: 10px;
+        max-width: 250px;
+
+        &:hover {
+            zoom: 105%;
+        }
+    }
+}
+
+#photos {
+    display: flex;
+    flex-wrap: wrap;
+
+    .mat-card {
+        max-width: 250px;
+        margin: 1vh auto;
+        height: fit-content;
+        display: inline-block;
+        background-color: #F1F1F1;
+
+        &:hover {
+            zoom: 100.5%;
+        }
+
+        span {
+            opacity: 50%;
+            float: right;
+            margin-top: -3rem;
+            position: relative;
+            color: whitesmoke;
+        }
+    }
+
+    img {
+        max-height: 350px;
+    }
+
+    .mat-card-actions {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        max-height: 60px;
+        display: inline-flex;
+
+        p {
+            width: 100%;
+        }
+
+        button:hover {
+            zoom: 105%;
+            background-color: gray;
+            color: whitesmoke;
+        }
+    }
+}
+
+#top {
+    top: 90vh;
+    right: 3vw;
+    position: fixed;
+    background-color: royalblue;
+}
