@@ -1,0 +1,13 @@
+<h1 mat-dialog-title>Upload a photo</h1>
+<div mat-dialog-content>
+    <img mat-card-image #previewImage [src]="previewPhoto">
+    <input #photoInput name="photo" title="photo" id="photo" type="file" accept=".jpg,.jpeg,.png"
+        (change)="upload.style.display = photoSelected(photoInput.files)?'':'none'; previewImage.style.display = photoSelected(photoInput.files)?'':'none'; ">
+    <button #upload (click)="uploadPhoto();upload.disabled=true;"
+        style="display: none; border-radius: 2rem;">UPLOAD</button>
+    <button mat-dialog-close #close style="display: none;"></button>
+</div>
+<mat-card-footer>
+    <mat-progress-bar color="primary" [bufferValue]="100" [value]="uploadfraction*100" (animationEnd)="close.click();">
+    </mat-progress-bar>
+</mat-card-footer>

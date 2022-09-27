@@ -1,0 +1,13 @@
+div {
+    text-align: center;
+
+    img {
+        border-radius: 50%;
+    }
+
+    button {
+        &:last-child {
+            margin-left: 2rem;
+        }
+    }
+}
