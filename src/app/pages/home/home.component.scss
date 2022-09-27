@@ -22,13 +22,14 @@
 
 
 // border radius
-ngx-slick-carousel img,
+swiper img,
 #school-map iframe,
 #feedback * {
   border-radius: 0.5rem !important;
 }
 
-div ngx-slick-carousel div {
+div swiper div {
+  max-height: 50vh;
   margin: 0 0.5rem !important;
 }
 
@@ -74,7 +75,7 @@ main {
 
   img {
     margin: auto;
-    height: max-content;
+    max-height: 50vh;
   }
 }
 
@@ -216,4 +217,38 @@ main {
     min-width: 10vw;
     min-height: 10vh;
   }
+}
+
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  max-height: 50vh;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
