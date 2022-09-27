@@ -46,7 +46,7 @@ import { DataLoadingComponent } from './components/data-loading/data-loading.com
     DataLoadingComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     // provideFirebaseApp(() => initializeApp(environment.firebase)),
     // provideAuth(() => getAuth()),
