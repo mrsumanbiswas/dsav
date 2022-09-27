@@ -4,16 +4,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 // firebase config
-// import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
-// import { environment } from '../environments/environment';
-// import { provideAuth, getAuth } from '@angular/fire/auth';
-// import { provideDatabase, getDatabase } from '@angular/fire/database';
-// import { provideAnalytics, getAnalytics, ScreenTrackingService, UserTrackingService } from '@angular/fire/analytics';
-// import { provideMessaging, getMessaging } from '@angular/fire/messaging';
-// import { providePerformance, getPerformance } from '@angular/fire/performance';
-// import { provideRemoteConfig, getRemoteConfig } from '@angular/fire/remote-config';
-// import { provideStorage, getStorage } from '@angular/fire/storage';
-// import { provideFirestore, getFirestore } from '@angular/fire/firestore'
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideAuth, getAuth } from '@angular/fire/auth';
+import { provideDatabase, getDatabase } from '@angular/fire/database';
+import { provideAnalytics, getAnalytics, ScreenTrackingService, UserTrackingService } from '@angular/fire/analytics';
+import { provideStorage, getStorage } from '@angular/fire/storage';
+import { provideFirestore, getFirestore } from '@angular/fire/firestore'
 // material theme
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './modules/material/material.module';
@@ -32,6 +29,7 @@ import { PhotosComponent } from './pages/photos/photos.component';
 import { UploadPhotosComponent } from './components/upload-photos/upload-photos.component';
 import { DataLoadingComponent } from './components/data-loading/data-loading.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,15 +46,12 @@ import { DataLoadingComponent } from './components/data-loading/data-loading.com
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
-    // provideFirebaseApp(() => initializeApp(environment.firebase)),
-    // provideAuth(() => getAuth()),
-    // provideStorage(() => getStorage()),
-    // provideDatabase(() => getDatabase()),
-    // provideFirestore(() => getFirestore()),
-    // provideAnalytics(() => getAnalytics()),
-    // provideMessaging(() => getMessaging()),
-    // providePerformance(() => getPerformance()),
-    // provideRemoteConfig(() => getRemoteConfig()),
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => getAuth()),
+    provideStorage(() => getStorage()),
+    provideDatabase(() => getDatabase()),
+    provideFirestore(() => getFirestore()),
+    provideAnalytics(() => getAnalytics()),
     BrowserAnimationsModule,
     MaterialModule,
     FormsModule,
@@ -65,7 +60,7 @@ import { DataLoadingComponent } from './components/data-loading/data-loading.com
 
   ],
   providers: [
-    // ScreenTrackingService, UserTrackingService
+    ScreenTrackingService, UserTrackingService
   ],
   bootstrap: [AppComponent]
 })
