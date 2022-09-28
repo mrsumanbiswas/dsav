@@ -4,6 +4,10 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { MatStepper } from '@angular/material/stepper';
 import { homePage } from 'src/app/models/home-page-data';
 import { FirestoreDatabaseService } from 'src/app/services/firestore-database.service';
+import SwiperCore, { Autoplay, EffectCoverflow, Pagination, SwiperOptions } from "swiper";
+
+SwiperCore.use([Autoplay,EffectCoverflow, Pagination]);
+
 
 @Component({
   selector: 'app-home',
@@ -25,34 +29,35 @@ export class HomeComponent implements OnInit {
   ];
 
   // slider config
-  slider_image = {
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    dots: false,
-    infinite: true,
-    autoplay: true,
-    autoplaySpeed: 3000,
-    draggable: false,
-    fade: true,
-    pauseOnHover: false,
-    arrows: false,
-    adaptiveHeight: true,
-    centerMode: true,
-    waitForAnimate: true,
-  };
+  slideConfig : SwiperOptions={
+    effect:'coverflow',
+    spaceBetween:0,
+    grabCursor:true,
+    centeredSlides:true,
+    slidesPerView:4,
+    coverflowEffect:{
+      rotate:50,
+      stretch:0,
+      depth:100,
+      modifier:1,
+      slideShadows:true
+    },
+    autoplay:true,
+    pagination:true
+  }
 
-  slideConfig = {
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    dots: true,
-    infinite: true,
-    autoplay: true,
-    autoplaySpeed: 1500,
-    arrows: false,
-    adaptiveHeight: true,
-    centerMode: true,
-    waitForAnimate: true,
-  };
+  slider_images:SwiperOptions ={
+      spaceBetween:30,
+    centeredSlides:true,
+    autoplay:{
+      delay:3000,
+      disableOnInteraction:false
+    },
+    pagination:{
+      clickable:false
+    },
+    navigation:true
+  }
 
   // form group and it's validations
   firstFormGroup = this._formBuilder.group({
@@ -81,18 +86,14 @@ export class HomeComponent implements OnInit {
     // feedback cheker
     this.feedback = (localStorage.getItem('feedBack') !== null) ? true : false;
     //
-    let x = 1, y = 1;
     if (innerWidth >= 1024) {
-      x = 4;
-      y = 2;
       this.tableWidth = 'max-content'
     } else if (innerWidth < 1024 && innerWidth > 425) {
-      x = 2;
-      y = 1;
       this.tableWidth = 'fit-content'
+      this.slideConfig.slidesPerView=2
+    }else{
+      this.slideConfig.slidesPerView=1  
     }
-    this.slideConfig.slidesToShow = x;
-    this.slideConfig.slidesToScroll = y;
   }
 
   submitFeedback(stepper: MatStepper) {

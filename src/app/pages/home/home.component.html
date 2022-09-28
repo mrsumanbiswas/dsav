@@ -1,11 +1,16 @@
 <!-- If data loaded then It will show -->
 <main *ngIf="data">
     <!-- image slider -->
-    <ngx-slick-carousel [config]="slider_image" id="image-slider">
+  <!-- <ngx-slick-carousel [config]="slider_image" id="image-slider">
         <div ngxSlickItem *ngFor="let image of data.slider_images" class="slide">
             <img [src]="image" alt="slider_images" width="100%">
         </div>
-    </ngx-slick-carousel>
+    </ngx-slick-carousel> -->
+    <swiper [config]="slider_images">
+        <ng-template swiperSlide *ngFor="let image of data.slider_images">
+            <img [src]="image" alt="slider image" height="auto" width="100%">
+        </ng-template>
+    </swiper>
 
     <!-- overview -->
     <div id="overview">
@@ -51,11 +56,16 @@
         <h1>
             Featured Gallery
         </h1>
-        <ngx-slick-carousel [config]="slideConfig">
+        <!-- <ngx-slick-carousel [config]="slideConfig">
             <div ngxSlickItem *ngFor="let image of data.featured_gallery" class="slide">
                 <img [src]="image" alt="galllery" width="100%">
             </div>
-        </ngx-slick-carousel>
+        </ngx-slick-carousel> -->
+        <swiper [config]="slideConfig">
+            <ng-template swiperSlide *ngFor="let image of data.featured_gallery">
+                <img [src]="image" height="250px" width="100%" alt="featured_gallery">
+            </ng-template>
+        </swiper>
     </div>
 
     <!-- events -->
@@ -208,14 +218,14 @@
             <h2>
                 Alumni
             </h2>
-            <ngx-slick-carousel [config]="slideConfig">
+            <!-- <ngx-slick-carousel [config]="slideConfig">
                 <div ngxSlickItem *ngFor="let alumni of data.alumni" class="slide">
                     <img [src]="alumni.img" alt="Alumni" width="100%">
                     <p>
                         <b>{{alumni.name}}</b>
                     </p>
                 </div>
-            </ngx-slick-carousel>
+            </ngx-slick-carousel> -->
         </div>
 
     </div>
@@ -239,7 +249,7 @@
         <h1>
             Teachers
         </h1>
-        <ngx-slick-carousel [config]="slideConfig">
+        <!-- <ngx-slick-carousel [config]="slideConfig">
             <div ngxSlickItem *ngFor="let teacher of data.teachers" class="slide">
                 <img [src]="teacher.img" alt="Teachers" width="100%">
                 <p>
@@ -248,7 +258,7 @@
                     <b>Subject</b> : {{teacher.subject}}
                 </p>
             </div>
-        </ngx-slick-carousel>
+        </ngx-slick-carousel> -->
     </div>
 
     <!-- managing committee -->
@@ -256,7 +266,7 @@
         <h1>
             Managing Committee
         </h1>
-        <ngx-slick-carousel [config]="slideConfig">
+        <!-- <ngx-slick-carousel [config]="slideConfig">
             <div ngxSlickItem *ngFor="let mc of data.managing_committee" class="slide">
                 <img [src]="mc.img" alt="Manageing Committee" width="100%">
                 <p>
@@ -265,7 +275,7 @@
                     <b>Topic</b> : {{mc.topic}}
                 </p>
             </div>
-        </ngx-slick-carousel>
+        </ngx-slick-carousel> -->
     </div>
 
 

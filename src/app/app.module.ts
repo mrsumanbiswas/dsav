@@ -17,8 +17,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './modules/material/material.module';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
-// slick0carousel package
-import { SlickCarouselModule } from 'ngx-slick-carousel';
+// Swiper package
+import {  SwiperModule} from "swiper/angular";
+
 // components
 import { HomeComponent } from './pages/home/home.component';
 import { AboutComponent } from './pages/about/about.component';
@@ -57,7 +58,7 @@ import { DataLoadingComponent } from './components/data-loading/data-loading.com
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,
-    SlickCarouselModule
+    SwiperModule
   ],
   providers: [
     ScreenTrackingService,UserTrackingService
